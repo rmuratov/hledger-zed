@@ -1,0 +1,11 @@
+id = "hledger"
+name = "hledger"
+description = "hledger journal format support"
+version = "0.1.0"
+schema_version = 1
+authors = ["rmuratov"]
+repository = "https://github.com/rmuratov/hledger-zed"
+
+[grammars.hledger]
+repository = "https://github.com/chrislloyd/tree-sitter-hledger"
+rev = "75bfaa6acb76d99a7e130feaf5cd9d12e7dcba37"

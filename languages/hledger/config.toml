@@ -1,0 +1,13 @@
+name = "hledger"
+grammar = "hledger"
+path_suffixes = ["journal", "j", "hledger", "ledger"]
+
+line_comments = ["# ", "; "]
+
+block_comment = ["comment", "end comment"]
+
+brackets = [
+  { start = "{", end = "}", close = true, newline = true },
+  { start = "[", end = "]", close = true, newline = true },
+  { start = "(", end = ")", close = true, newline = true },
+]
