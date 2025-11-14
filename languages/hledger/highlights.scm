@@ -1,11 +1,9 @@
 ; Comments
 (comment) @comment
 (inline_comment) @comment
-(comment_text) @comment
 
 ; Dates
 (date) @constant
-(_simple_date) @constant
 
 ; Transaction status
 (status) @operator
@@ -15,13 +13,9 @@
 
 ; Description and payee
 (description) @string
-(payee) @string
 
 ; Account names
 (account) @property
-(_account_name) @property
-(virtual_account) @property
-(balanced_virtual_account) @property
 
 ; Amounts and quantities
 (quantity) @number
