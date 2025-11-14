@@ -43,30 +43,3 @@
 (year_directive) @keyword
 (default_commodity_directive) @keyword
 (price_directive) @keyword
-
-; Directive keywords at the beginning
-"account" @keyword
-"commodity" @keyword
-"include" @keyword
-"tag" @keyword
-"payee" @keyword
-"D" @keyword
-"Y" @keyword
-"P" @keyword
-"alias" @keyword
-"end aliases" @keyword
-"apply account" @keyword
-"end apply account" @keyword
-
-; Symbols
-"@" @operator
-"@@" @operator
-"=" @operator
-"==" @operator
-"*" @operator
-"!" @operator
-"(" @punctuation.bracket
-")" @punctuation.bracket
-"[" @punctuation.bracket
-"]" @punctuation.bracket
-";" @punctuation.delimiter
