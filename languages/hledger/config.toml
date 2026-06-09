@@ -4,3 +4,9 @@ path_suffixes = ["journal", "hledger", "ledger"]
 line_comments = ["# ", "; ", "* "]
 tab_size = 4
 hard_tabs = false
+
+# Indent postings after a transaction header (starts with a date),
+# a periodic transaction (~), or an auto-posting rule (=).
+increase_indent_pattern = '^[0-9~=]'
+# A blank line ends a transaction, so don't carry indentation across it.
+auto_indent_using_last_non_empty_line = false

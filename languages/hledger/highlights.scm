@@ -1,45 +1,69 @@
-; Comments
+; ─── Comments ─────────────────────────────────────────────────────────────────
+; block_comment is aliased to `comment` in the grammar, so one rule covers both.
 (comment) @comment
-(inline_comment) @comment
 
-; Dates
-(date) @constant
+; ─── Tags ─────────────────────────────────────────────────────────────────────
+(tag_name) @property
+(tag_value) @string
 
-; Transaction status
-(status) @operator
+; ─── Dates ────────────────────────────────────────────────────────────────────
+(date) @number
+(secondary_date) @number
 
-; Transaction code
-(code) @label
+; ─── Transaction header ───────────────────────────────────────────────────────
+(status) @keyword
 
-; Description and payee
+; Code reference, e.g. (#1234) or (REF123)
+(code "(" @punctuation.bracket)
+(code ")" @punctuation.bracket)
+(code) @string
+
 (description) @string
 
-; Account names
-(account) @property
+; Payee declared by the `payee` directive
+(payee) @string
 
-; Amounts and quantities
+; ─── Accounts ─────────────────────────────────────────────────────────────────
+(account) @variable
+
+; Virtual posting delimiters
+(posting_virtual "(" @punctuation.bracket)
+(posting_virtual ")" @punctuation.bracket)
+(posting_virtual_balanced "[" @punctuation.bracket)
+(posting_virtual_balanced "]" @punctuation.bracket)
+
+; ─── Amounts ──────────────────────────────────────────────────────────────────
 (quantity) @number
-(amount) @number
-
-; Commodities (currencies)
 (commodity) @type
+(sign) @operator
+(multiplier) @operator
+(cost_operator) @operator
+(assertion_operator) @operator
 
-; Prices
-(unit_price) @operator
-(total_price) @operator
-(balance_assertion) @operator
+; ─── Directives: keywords ─────────────────────────────────────────────────────
+; Most directive keywords are unique strings that appear nowhere else in the
+; grammar, so a bare list match is safe and concise.
+[
+  "account"
+  "alias"
+  "end aliases"
+  "commodity"
+  "format"
+  "decimal-mark"
+  "include"
+  "payee"
+  "tag"
+  "P"
+  "~"
+] @keyword
 
-; Directives
-(account_directive) @keyword
-(commodity_directive) @keyword
-(include_directive) @keyword
-(tag_directive) @keyword
-(payee_directive) @keyword
-(decimal_mark_directive) @keyword
-(alias_directive) @keyword
-(end_aliases_directive) @keyword
-(apply_account_directive) @keyword
-(end_apply_account_directive) @keyword
-(year_directive) @keyword
-(default_commodity_directive) @keyword
-(price_directive) @keyword
+; "=" is also used as the separator in secondary_date, so match it only in
+; the auto-posting directive context to avoid coloring date separators as keywords.
+(directive_auto_posting "=" @keyword)
+
+; ─── Directives: values ───────────────────────────────────────────────────────
+(path) @string
+(period_expression) @string
+(query) @string
+(alias_base) @variable
+(alias_substitute) @string

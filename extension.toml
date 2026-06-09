@@ -2,10 +2,10 @@ id = "hledger"
 name = "hledger"
 version = "0.0.1"
 schema_version = 1
-authors = ["Roman Muratov <rmuratov@gmail.com>"]
+authors = ["Ramil Muratov <rmuratov@gmail.com>"]
 description = "hledger language support for Zed"
 repository = "https://github.com/rmuratov/hledger-zed"
 
 [grammars.hledger]
 repository = "https://github.com/rmuratov/tree-sitter-hledger"
-rev = "75a24fb0a21899ad44e67f21319fb7e68a0e45ba"
+rev = "c80609ceb0faf727286ce9d6423a4c19a00a6f8f"
