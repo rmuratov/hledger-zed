@@ -8,4 +8,4 @@ repository = "https://github.com/rmuratov/hledger-zed"
 
 [grammars.hledger]
 repository = "https://github.com/rmuratov/tree-sitter-hledger"
-rev = "c80609ceb0faf727286ce9d6423a4c19a00a6f8f"
+rev = "3dfbbe25fa5d4d87119572a25ef1500335a4ccfb"
